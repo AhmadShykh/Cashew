@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "219417103997",
+    "project_id": "cashew-budget-513fe",
+    "storage_bucket": "cashew-budget-513fe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219417103997:android:d42a1fbcd071f243482b14",
+        "android_client_info": {
+          "package_name": "com.budget.tracker_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219417103997-02lkn8jpk4a0th8lb25a587d1g01i2vt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiG4ek0tTn2qg3qG_7ZE_vpZSRaFGRJJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219417103997-02lkn8jpk4a0th8lb25a587d1g01i2vt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "219417103997-1f0aitd3vboe5fp9upu9pr8c1j023edh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.budget"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
