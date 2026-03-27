@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:219417103997:android:d42a1fbcd071f243482b14",
+        "mobilesdk_app_id": "1:219417103997:android:6e0e185573c27c1d482b14",
         "android_client_info": {
-          "package_name": "com.budget.tracker_app"
+          "package_name": "com.ahmadali.opencashew"
         }
       },
       "oauth_client": [

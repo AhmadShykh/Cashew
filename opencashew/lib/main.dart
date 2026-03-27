@@ -43,34 +43,48 @@ bool allowDangerousDebugFlags = kDebugMode;
 
 void main() async {
   captureLogs(() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    await EasyLocalization.ensureInitialized();
-    sharedPreferences = await SharedPreferences.getInstance();
-    database = await constructDb('db');
-    notificationPayload = await initializeNotifications();
-    entireAppLoaded = false;
-    await loadCurrencyJSON();
-    await loadLanguageNamesJSON();
-    await initializeSettings();
-    tz.initializeTimeZones();
-    final String? locationName = await FlutterTimezone.getLocalTimezone();
-    tz.setLocalLocation(tz.getLocation(locationName ?? "America/New_York"));
-    iconObjects.sort((a, b) => (a.mostLikelyCategoryName ?? a.icon)
-        .compareTo((b.mostLikelyCategoryName ?? b.icon)));
-    setHighRefreshRate();
-    runApp(
-      DevicePreview(
-        enabled: enableDevicePreview,
-        builder: (context) => InitializeLocalizations(
-          child: RestartApp(
-            child: InitializeApp(key: appStateKey),
+
+    try{
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp(
+        name: "opencashew",
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+      await EasyLocalization.ensureInitialized();
+      sharedPreferences = await SharedPreferences.getInstance();
+      database = await constructDb('db');
+      notificationPayload = await initializeNotifications();
+
+      entireAppLoaded = false;
+      await loadCurrencyJSON();
+      await loadLanguageNamesJSON();
+      await initializeSettings();
+      tz.initializeTimeZones();
+      final String? locationName = await FlutterTimezone.getLocalTimezone();
+      tz.setLocalLocation(tz.getLocation(locationName ?? "America/New_York"));
+      iconObjects.sort((a, b) => (a.mostLikelyCategoryName ?? a.icon)
+          .compareTo((b.mostLikelyCategoryName ?? b.icon)));
+      setHighRefreshRate();
+
+      print("Hello2");
+
+
+      runApp(
+        DevicePreview(
+          enabled: enableDevicePreview,
+          builder: (context) => InitializeLocalizations(
+            child: RestartApp(
+              child: InitializeApp(key: appStateKey),
+            ),
           ),
         ),
-      ),
-    );
+      );
+    }
+    catch(e, s){
+      print("Got Exception: $e");
+      print("Stack: $s");
+    }
+
   });
 }
 
