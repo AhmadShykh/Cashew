@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "219417103997-gv99q9f7e2qbps9ogdc72jtq6ue79bae.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.ahmadali.opencashew",
-            "certificate_hash": "50c47cc67da8583e6a8d13564263a90fa87f4e24"
-          }
-        },
-        {
           "client_id": "219417103997-02lkn8jpk4a0th8lb25a587d1g01i2vt.apps.googleusercontent.com",
           "client_type": 3
         }

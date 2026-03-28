@@ -250,7 +250,7 @@ Future<bool> signInAndSync(BuildContext context,
   try {
     await signInGoogle(
       context: context,
-      waitForCompletion: false,
+      waitForCompletion: true,
       next: next,
     );
     if (appStateSettings["username"] == "" && googleUser != null) {

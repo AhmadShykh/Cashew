@@ -1,25 +1,820 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fc2513a-effe-47ec-aad3-f40d9989a5e2" name="Changes" comment="">
+    <list default="true" id="c9f4afe3-b4d1-4828-a773-37dc3f4477ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/budget.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/android/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/android/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/kotlin/com/budget/tracker_app/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/addtransaction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/net_worth_plus_widget.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/net_worth_widget.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/notification_icon_android2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/piechart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/piggybank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/plus_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/plus_widget.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/transfer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/transfer_widget.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/transfertransaction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/drawable/widget_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/layout/net_worth_plus_widget_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/layout/net_worth_widget_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/layout/plus_widget_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/layout/transfer_widget_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-hdpi/ic_launcher_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-hdpi/ic_launcher_monochrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-mdpi/ic_launcher_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-mdpi/ic_launcher_monochrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xhdpi/ic_launcher_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xhdpi/ic_launcher_monochrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/raw/keep.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/xml/net_worth_plus_widget.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/xml/net_worth_widget.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/xml/plus_widget.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/main/res/xml/transfer_widget.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/build/reports/problems/problems-report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/android/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/3d-printer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/air-hockey.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/anchor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/antivirus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/apple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/atm-machine(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/atm-machine(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/back-undo-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/ball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/balloons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/barber.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/baseball-player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/battery-charge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/beach-umbrella.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bicycle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bills.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/binoculars.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/birdhouse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bookshelf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bottles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bouquet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bowling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bread.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/briefcase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/bubble-tea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/butterfly.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cabin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cactus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/calculator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/camera.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/campfire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/candy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/car(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/car(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/car-charging-station.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/car-key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/car.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cards.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cash-bill-dollar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/celebration.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/charts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/checker-chess-board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/chef-hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/chess.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/christmas-tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/church.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cleaning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/clipboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/clothes-hanger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cloudy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/coconut-tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/coffee-cup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/coffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/color-palette.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/compass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/confetti(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/confetti.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/construction-helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cookies.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cottage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cowboy-hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/credit-card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cricket-bat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/crypto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cupcake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/curry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/cutlery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/decrease.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/delivery-truck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/dental-care.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/desktop-computer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/diamond.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/dice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/dog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/dollar-coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/donut.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/double-bed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/dress.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/dvd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/earth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/eggs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/emergency-exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/envelope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/essay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/exchange-arrows-circle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/exchange-arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/extinguisher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/face-mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fast-food.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/favourite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/feathers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/feeding-bottle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fireplace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fishing-rod.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fizzy-drink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/flashlight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/flat-tire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/flower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/folder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/food-tray.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fried-egg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fried-potatoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fruit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/fuel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/furniture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gamepad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/garden-hose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gas-station.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gas-valve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gasoline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gears.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gift-card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/gift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/glass-of-water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/glass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/golf-ball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/golf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/graduation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/grill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/groceries.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/guitar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/haircut.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/hamster.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/hand-fan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/headphones.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/healthcare-and-medical.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/healthy-food.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/hearing-aid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/heart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/helicopter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/high-heels.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/hiking-backpack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/hockey-stick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/home2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/hoodie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/house(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/house.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/ice-cream-cup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/idea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/increase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/internet-globe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/investment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/keyboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/kite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/laptop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/lighthouse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/lightning-bolt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/limousine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/loan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/location-pin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/locomotive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/magic-box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/magnifying-glass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/make-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/makeup(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/makeup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/media-content.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/microphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/milk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/mixer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/money-bag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/money-bag2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/money.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/motor-bike(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/motor-bike(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/multivitamin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/music.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/necklace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/noodles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/note.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/oldschool-telephone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/open-book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/open-email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/orange-juice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/organic-food.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/package.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/padlock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/paper-bill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/paper-ticket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/parents.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/parking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/pen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/pencil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/pet-bowl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/piano.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/picnic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/piggy-bank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/pizza.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/plane.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/plant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/popcorn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/popsicle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/portable-game-console.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/price-tag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/pumpkin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/radio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/rain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/rainbow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/raw-meat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/recycling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/reload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/rent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/robot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/safe-box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/safety-helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/salad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sandals.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sandwich.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sauces.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/school-backpack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/school-bus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/science.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/security-box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/shopping-cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/shopping.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/shrimp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sim-card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/skincare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/smartphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sneakers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/snooker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/snorkling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/snowman.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/socket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/spaghetti.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/speaker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sports.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sticky-notes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/subscription.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/sushi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tablet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/taco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/target.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/taxi(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/taxi(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/teddy-bear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/telescope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/television.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/theatre.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tickets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/toiletries.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/top-hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/trash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/trophy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/tshirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/umbrella.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/vision.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/wallet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/washing-machine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/watch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/water-bottle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/water-tap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/watering-can.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/weight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/wifi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/winter-hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/categories/yarn-ball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/AvenirLTStd-Black.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/AvenirLTStd-Roman.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/DMSans-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/DMSans-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/Inconsolata-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/Inconsolata-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/Inter-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/Inter-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/Metropolis-Bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/Metropolis-Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/RobotoCondensed-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/fonts/RobotoCondensed-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icon/icon-small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icon/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icon/notification_icon_android.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icon/notification_icon_android2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icons/Icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icons/fun/party-hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/icons/fun/santa-hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/images/empty-filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/images/empty-old-filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/images/empty-old.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/images/empty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/images/no-search-filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/images/no-search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/landing/BankOrPig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/landing/DepressedMan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/landing/Graph.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/landing/PigBank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/Convert.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/countries.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/currencies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/currenciesInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/currenciesInfo2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/generated/currencies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/static/language-names.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generate-translations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/af.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ar.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/bg.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/bn.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/cs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/da.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/de.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/el.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/es.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/fa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/fi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/fil.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/fr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/gu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/he.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/hi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/hu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/id.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/it.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ja.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ko.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/kxd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/mk.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ml.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/mr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ms.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/nl.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/no.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/none.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/pl.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/pt-PT.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/pt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ro.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ru.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/si.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/sk.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/sr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/sv.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/sw.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/te.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/th.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/tr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/uk.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/ur.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/vi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/zh-Hant.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/generated/zh.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/assets/translations/translations.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/ios/RunnerTests/RunnerTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/colors.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/binary_string_conversion.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/generatePreviewData.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/initializeDefaultDatabase.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/platform/native.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/platform/shared.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/platform/unsupported.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/platform/web.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/schema_versions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/tables.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/database/tables.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/firebase_options.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/functions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/modified/reorderable_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/aboutPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/accountsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/activityPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addAssociatedTitlePage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addBudgetPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addButton.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addCategoryPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addEmailTemplate.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addObjectivePage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addTransactionPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/addWalletPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/autoTransactionsPageEmail.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/billSplitter.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/budgetPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/budgetsListPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/creditDebtTransactionsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/debugPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/detailedChangelogPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editAssociatedTitlesPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editBudgetLimitsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editBudgetPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editCategoriesPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editHomePage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editObjectivesPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/editWalletsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/exchangeRatesPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageAllSpendingSummary.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageBudgets.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageCreditDebts.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageHeatmap.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageLineGraph.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageNetWorth.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageObjectives.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePagePieChart.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageUpcomingTransactions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageUsername.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageWalletList.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homePageWalletSwitcher.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/homePage/homeTransactions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/notificationsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/objectivePage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/objectivesListPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/onBoardingPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/pastBudgetsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/premiumPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/settingsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/sharedBudgetSettings.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/subscriptionsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/transactionFilters.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/transactionsListPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/transactionsSearchPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/upcomingOverdueTransactionsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/pages/walletDetailsPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/commonDateFormats.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/currencyFunctions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/customDelayedCurve.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/databaseGlobal.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/dateTimePickerLocalizationsDelegate.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/defaultCategories.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/defaultPreferences.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/firebaseAuthGlobal.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/iconObjects.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/initializeBiometrics.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/initializeNotifications.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/keyboardIntents.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/languageMap.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/linkHighlighter.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/listenableSelector.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/logging.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/navBarIconsData.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/notificationsGlobal.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/quickActions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/randomConstants.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/scrollBehaviorOverride.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/settings.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/shareBudget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/spendingSummaryHelper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/syncClient.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/throttler.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/upcomingTransactionsFunctions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/struct/uploadAttachment.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/accountAndBackup.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/amountRangeSlider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/animatedCircularProgress.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/animatedExpanded.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/barGraph.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/bottomNavBar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/breathingAnimation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/budgetContainer.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/budgetHistoryLineGraph.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/categoryEntry.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/categoryIcon.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/categoryLimits.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/changePagesArrows.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/colorPicker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/countNumber.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/currencyPicker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/dateDivider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/dropdownSelect.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/editRowEntry.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/exportCSV.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/exportDB.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/extraInfoBoxes.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/fab.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/fadeIn.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/fakeTextInput.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/framework/navigation_bar/navigation_bar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/framework/pageFramework.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/framework/popupFramework.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/ghostTransactions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/globalLoadingProgress.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/globalSnackbar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/iconButtonScaled.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/importCSV.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/importDB.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/incomeExpenseTabSelector.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/lineGraph.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/linearGradientFadedEdges.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/listItem.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/listView.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/longPressListener.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/monthSelector.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/moreIcons.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/navigationFramework.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/navigationSidebar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/noResults.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/notificationsSettings.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/openBottomSheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/openContainerNavigation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/openPopup.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/openSnackbar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/outlinedButtonStacked.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/pageIndicator.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/periodCyclePicker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/pieChart.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/pinWheelReveal.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/progressBar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/pullDownToRefreshSync.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/radioItems.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/ratingPopup.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/restartApp.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/saveBottomButton.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/scrollbarWrap.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectAmount.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectCategory.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectCategoryImage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectChips.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectColor.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectDateRange.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectItems.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/selectedTransactionsAppBar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/settingsContainers.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/showChangelog.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/sliderSelector.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/slidingSelectorIncomeExpense.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/sliverStickyHeaderIfTall.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/sliverStickyLabelDivider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/statusBox.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/tableEntry.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/tappable.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/tappableTextEntry.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/textInput.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/textWidgets.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/timeDigits.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntries.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/incomeAmountArrow.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/swipeToSelectTransactions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/transactionEntry.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/transactionEntryAmount.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/transactionEntryNote.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/transactionEntryTag.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/transactionEntryTypeButton.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionEntry/transactionLabel.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/transactionsAmountBox.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/appLinks.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/checkWidgetLaunch.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/contextMenu.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/debouncer.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/fullPageDoubleColumnLayout.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/implicitlyAnimatedDeleteSliverReorderableList.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/infiniteRotationAnimation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/keepAliveClientMixin.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/multiDirectionalInfiniteScroll.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/onAppResume.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/rightSideClipper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/saveFile.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/showDatePicker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/showTimePicker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/sliverPinnedOverlapInjector.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/watchForDayChange.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/util/widgetSize.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/viewAllTransactionsButton.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/walletEntry.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/watchAllSettings.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/lib/widgets/watchAllWallets.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/runner/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/runner/main.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/runner/my_application.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/linux/runner/my_application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Base.lproj/MainMenu.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Configs/AppInfo.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Configs/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Configs/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Configs/Warnings.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/DebugProfile.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/MainFlutterWindow.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/Runner/Release.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/macos/RunnerTests/RunnerTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/assets/demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/assets/min_demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/benchmark/benchmark.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/implicitly_animated_reorderable_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/custom_sliver_animated_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/diff/diff.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/diff/diff_callback.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/diff/diff_delegate.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/diff/diff_model.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/diff/myers_diff.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/diff/path_node.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/handle.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/implicitly_animated_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/implicitly_animated_list_base.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/implicitly_animated_reorderable_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/reorderable.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/src.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/transitions/size_fade_transition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/transitions/transitions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/util/handler.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/util/invisible.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/util/key_extensions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/src/util/util.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/lib/transitions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/implicitly_animated_reorderable_list-0.4.2-modified/test/diff_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/example.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/example_header_footer.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/example_reflecting_changes.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/example_snapping_pixelOffset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/example_snapping_relativeToAvailableSpace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/example_snapping_relativeToSheetHeight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/non_dismissable_demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/parallax_demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/usage_example.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/assets/usage_example_bottom_sheet.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/sliding_sheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/scrolling.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/sheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/sheet_container.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/sheet_dialog.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/sheet_listener_builder.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/specs.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/lib/src/util.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/packages/sliding_sheet-0.5.2-modified/test/sliding_sheet_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/icons/Icon-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/icons/Icon-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/icons/Icon-maskable-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/icons/Icon-maskable-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/web/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/Runner.rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/flutter_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/flutter_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/resource.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/resources/app_icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/runner.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/utils.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/utils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/win32_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../budget_new/windows/runner/win32_window.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../opencashew/android/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/android/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/android/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/android/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/android/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/android/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opencashew/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../opencashew/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,42 +824,188 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=C:\Users\ahmad\.android\avd\Pixel_9_Pro_API_35.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/android">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$/android" gradleHome="C:\Users\ahmad\.gradle\wrapper\dists\gradle-8.12-all\ejduaidbjup3bmmkhw3rie4zb\gradle-8.12" javaHome="E:\AndroidStudios\jbr" gradleVersion="8.12" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="3BIppZ6kmsnpKAphqPbL70daEwF" />
+  <component name="ProjectId" id="3Ax21jHSy399MXbKCeRCeLi9TG4" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="ProjectPane">
+        <option name="show-excluded-files" value="false" />
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Android App.android.app.executor": "Run",
+    "Flutter.main.dart.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "dev",
+    "io.flutter.project.isFirstOpen": "true",
+    "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "last_opened_file_path": "D:/Projects/SelfProjects/Cashew/budget",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.budget.tracker_app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="android.app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="android.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9fc2513a-effe-47ec-aad3-f40d9989a5e2" name="Changes" comment="" />
-      <created>1774186622635</created>
+      <changelist id="c9f4afe3-b4d1-4828-a773-37dc3f4477ca" name="Changes" comment="" />
+      <created>1773519691033</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1774186622635</updated>
+      <updated>1773519691033</updated>
     </task>
     <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
