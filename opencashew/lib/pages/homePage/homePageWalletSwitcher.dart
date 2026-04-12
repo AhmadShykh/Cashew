@@ -1,4 +1,3 @@
-import 'package:budget/colors.dart';
 import 'package:budget/database/initializeDefaultDatabase.dart';
 import 'package:budget/database/tables.dart';
 import 'package:budget/functions.dart';
@@ -15,6 +14,7 @@ import 'package:budget/widgets/openBottomSheet.dart';
 import 'package:budget/widgets/openPopup.dart';
 import 'package:budget/widgets/selectItems.dart';
 import 'package:budget/widgets/walletEntry.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -154,9 +154,10 @@ class EditHomePagePinnedWalletsPopup extends StatelessWidget {
                 items: allWalletsPks,
                 getColor: (walletPk, selected) {
                   TransactionWallet? wallet = walletsIndexedByPk[walletPk];
-                  return HexColor(wallet?.colour,
-                          defaultColor: Theme.of(context).colorScheme.primary)
-                      .withOpacity(selected == true ? 0.7 : 0.5);
+                  final Color base = wallet != null
+                      ? walletUiAccentColor(context, wallet)
+                      : Theme.of(context).colorScheme.primary;
+                  return base.withOpacity(selected == true ? 0.7 : 0.5);
                 },
                 displayFilter: (walletPk) {
                   TransactionWallet? wallet = walletsIndexedByPk[walletPk];

@@ -12,6 +12,7 @@ import 'package:budget/widgets/button.dart';
 import 'package:budget/widgets/openBottomSheet.dart';
 import 'package:budget/widgets/openPopup.dart';
 import 'package:budget/widgets/selectChips.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:budget/widgets/tappable.dart';
 import 'package:budget/widgets/textWidgets.dart';
 import 'package:budget/widgets/util/contextMenu.dart';
@@ -826,11 +827,7 @@ class _SelectAmountState extends State<SelectAmount> {
                           return dynamicPastel(
                             context,
                             lightenPastel(
-                              HexColor(
-                                item.colour,
-                                defaultColor:
-                                    Theme.of(context).colorScheme.primary,
-                              ),
+                              walletUiAccentColor(context, item),
                               amount: 0.3,
                             ),
                             amount: 0.4,

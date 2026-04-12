@@ -41,7 +41,13 @@
 
 <br />
 
-Cashew is a full-fledged, feature-rich application designed to empower users in managing their finances effectively. Built using Flutter - with Drift's SQL package, and Firebase - this app offers a seamless and intuitive user experience across various devices. Development started in September 2021.
+Cashew is a full-fledged, feature-rich application designed to empower users in managing their finances effectively. Built using Flutter 3.22.0 — with Drift's SQL package, and Firebase — this app offers a seamless and intuitive user experience across various devices. Development started in September 2021.
+
+## Development
+
+- **Flutter SDK:** Use **3.22.0** for local development and release builds so tooling, dependencies, and CI stay aligned. Pin the SDK with [FVM](https://fvm.app/), `flutter version`, or your preferred version manager.
+- **Application root:** Flutter sources and `pubspec.yaml` live under [`budget/`](budget/). Run Flutter and Dart commands from that directory (for example `cd budget`, then `flutter pub get` and `flutter run`).
+- **Platforms:** Android, iOS, web (PWA), and desktop builds are supported from the same codebase; see **Developer Notes** below for release commands, Firebase deploy, database migrations, and other maintainer workflows.
 
 ---
 

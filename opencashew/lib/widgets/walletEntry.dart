@@ -14,6 +14,7 @@ import 'package:budget/widgets/tappable.dart';
 import 'package:budget/widgets/textWidgets.dart';
 import 'package:budget/widgets/transactionEntry/incomeAmountArrow.dart';
 import 'package:budget/widgets/watchAllWallets.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:budget/pages/walletDetailsPage.dart';
@@ -49,9 +50,8 @@ class WalletEntry extends StatelessWidget {
                 border: Border.all(
                   width: 2,
                   color: selected
-                      ? HexColor(walletWithDetails.wallet.colour,
-                              defaultColor:
-                                  Theme.of(context).colorScheme.primary)
+                      ? walletUiAccentColor(
+                              context, walletWithDetails.wallet)
                           .withOpacity(0.7)
                       : Colors.transparent,
                 ),
@@ -66,16 +66,9 @@ class WalletEntry extends StatelessWidget {
                     PositionedDirectional(
                       end: -11,
                       top: -5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(100),
-                          color: HexColor(walletWithDetails.wallet.colour,
-                                  defaultColor:
-                                      Theme.of(context).colorScheme.primary)
-                              .withOpacity(0.7),
-                        ),
-                        width: 20,
-                        height: 20,
+                      child: WalletAccentSwatch(
+                        wallet: walletWithDetails.wallet,
+                        size: 20,
                       ),
                     ),
                     Container(
@@ -190,37 +183,20 @@ class WalletEntryRow extends StatelessWidget {
                         ScaledAnimatedSwitcher(
                           keyToWatch: selected.toString(),
                           child: selected
-                              ? Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadiusDirectional.circular(100),
-                                    color: HexColor(
-                                      walletWithDetails.wallet.colour,
-                                      defaultColor:
-                                          Theme.of(context).colorScheme.primary,
-                                    ).withOpacity(0.7),
-                                  ),
-                                  width: 20,
-                                  height: 20,
+                              ? WalletAccentSwatch(
+                                  wallet: walletWithDetails.wallet,
+                                  size: 20,
                                 )
                               : Transform.scale(
                                   scale: 0.9,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadiusDirectional.circular(100),
-                                      border: Border.all(
-                                        width: 2,
-                                        color: HexColor(
-                                          walletWithDetails.wallet.colour,
-                                          defaultColor: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                        ).withOpacity(0.7),
-                                      ),
-                                    ),
-                                    width: 20,
-                                    height: 20,
+                                  child: WalletAccentSwatch(
+                                    wallet: walletWithDetails.wallet,
+                                    size: 20,
+                                    borderWidth: 2,
+                                    borderColor: walletUiAccentColor(
+                                      context,
+                                      walletWithDetails.wallet,
+                                    ).withOpacity(0.7),
                                   ),
                                 ),
                         ),

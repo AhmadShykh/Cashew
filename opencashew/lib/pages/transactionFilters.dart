@@ -21,6 +21,7 @@ import 'package:flutter/material.dart';
 import 'package:budget/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:budget/widgets/selectChips.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:budget/widgets/amountRangeSlider.dart';
 
 class SearchFilters {
@@ -1421,14 +1422,14 @@ class AppliedFilterChips extends StatelessWidget {
     }
     // Wallets
     for (String walletPk in searchFilters.walletPks) {
+      final TransactionWallet? w = allWallets.indexedByPk[walletPk];
       out.add(AppliedFilterChip(
         label: getWalletStringName(
             Provider.of<AllWallets>(context, listen: false),
-            allWallets.indexedByPk[walletPk]),
-        customBorderColor: HexColor(
-          allWallets.indexedByPk[walletPk]?.colour,
-          defaultColor: Theme.of(context).colorScheme.primary,
-        ),
+            w),
+        customBorderColor: w != null
+            ? walletUiAccentColor(context, w)
+            : Theme.of(context).colorScheme.primary,
         openFiltersSelection: openFiltersSelection,
       ));
     }

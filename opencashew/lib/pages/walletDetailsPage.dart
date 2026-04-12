@@ -48,6 +48,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:budget/colors.dart';
 import 'package:budget/widgets/viewAllTransactionsButton.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:provider/provider.dart';
 import 'package:budget/widgets/fab.dart';
@@ -95,9 +96,11 @@ class WatchedWalletDetailsPage extends StatelessWidget {
       stream: database.getWallet(walletPk),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          Color? accentColor = HexColor(snapshot.data?.colour);
+          final TransactionWallet w = snapshot.data!;
+          final Color? accentColor =
+              w.colour != null ? walletUiAccentColor(context, w) : null;
           return CustomColorTheme(
-            accentColor: snapshot.data?.colour == null ? null : accentColor,
+            accentColor: accentColor,
             child: WalletDetailsPage(
               wallet: snapshot.data,
             ),

@@ -24,6 +24,7 @@ import 'package:budget/widgets/textInput.dart';
 import 'package:budget/widgets/textWidgets.dart';
 import 'package:budget/widgets/transactionEntry/transactionEntryTag.dart';
 import 'package:budget/widgets/walletEntry.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart' hide SliverReorderableList;
 import 'package:flutter/services.dart' hide TextInput;
@@ -231,9 +232,7 @@ class _EditWalletsPageState extends State<EditWalletsPage> {
                     TransactionWallet wallet = walletWithDetails.wallet;
                     Color accentColor = dynamicPastel(
                         context,
-                        HexColor(wallet.colour,
-                            defaultColor:
-                                Theme.of(context).colorScheme.primary),
+                        walletUiAccentColor(context, wallet),
                         amountLight: 0.55,
                         amountDark: 0.35);
                     return EditRowEntry(
@@ -538,10 +537,7 @@ Future<TransactionWallet?> selectWalletPopup(
                 return dynamicPastel(
                   context,
                   lightenPastel(
-                    HexColor(
-                      wallet.colour,
-                      defaultColor: Theme.of(context).colorScheme.primary,
-                    ),
+                    walletUiAccentColor(context, wallet),
                     amount: 0.2,
                   ),
                   amount: 0.1,

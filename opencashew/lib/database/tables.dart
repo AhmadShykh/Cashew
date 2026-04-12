@@ -8,6 +8,7 @@ import 'package:budget/struct/firebaseAuthGlobal.dart';
 import 'package:budget/struct/settings.dart';
 import 'package:budget/struct/shareBudget.dart';
 import 'package:budget/struct/syncClient.dart';
+import 'package:budget/struct/wallet_accent_storage.dart';
 import 'package:budget/widgets/navigationFramework.dart';
 import 'package:budget/widgets/periodCyclePicker.dart';
 import 'package:budget/widgets/walletEntry.dart';
@@ -26,7 +27,7 @@ import 'package:budget/pages/activityPage.dart';
 import 'package:flutter/material.dart' show RangeValues;
 part 'tables.g.dart';
 
-int schemaVersionGlobal = 46;
+int schemaVersionGlobal = 47;
 
 // To update and migrate the database, check the README
 
@@ -252,6 +253,9 @@ class Wallets extends Table {
   TextColumn get walletPk => text().clientDefault(() => uuid.v4())();
   TextColumn get name => text().withLength(max: NAME_LIMIT)();
   TextColumn get colour => text().withLength(max: COLOUR_LIMIT).nullable()();
+  // Basename only; file lives under application support / wallet_accents /
+  TextColumn get accentImageFileName =>
+      text().withLength(max: NAME_LIMIT).nullable()();
   TextColumn get iconName => text().nullable()(); // Money symbol
   DateTimeColumn get dateCreated =>
       dateTime().clientDefault(() => new DateTime.now())();
@@ -863,10 +867,12 @@ class FinanceDatabase extends _$FinanceDatabase {
           await migrator.alterTable(TableMigration(transactions));
           await migrator.deleteTable("Labels");
         }
-        await migrator.runMigrationSteps(
-          from: from,
-          to: to,
-          steps: migrationSteps(
+        final int versionedMigrationTarget = to > 46 ? 46 : to;
+        if (from < versionedMigrationTarget) {
+          await migrator.runMigrationSteps(
+            from: from,
+            to: versionedMigrationTarget,
+            steps: migrationSteps(
             from33To34: (m, schema) async {
               await m.addColumn(schema.wallets, schema.wallets.decimals);
             },
@@ -1166,6 +1172,16 @@ class FinanceDatabase extends _$FinanceDatabase {
             },
           ),
         );
+        }
+        if (from < 47 && to >= 47) {
+          try {
+            await migrator.addColumn(wallets, wallets.accentImageFileName);
+          } catch (e) {
+            print(
+                "Migration Error: Error creating column wallets.accentImageFileName " +
+                    e.toString());
+          }
+        }
       },
       beforeOpen: (details) async {
         // This code exists because migration 42to43 may have not run correctly...
@@ -1174,6 +1190,13 @@ class FinanceDatabase extends _$FinanceDatabase {
           final m = createMigrator();
           await m.addColumn(transactions, transactions.budgetFksExclude);
           print("Migration successfully fixed budgetFksExclude");
+        } catch (e) {
+          // The column already existed
+        }
+        try {
+          final m = createMigrator();
+          await m.addColumn(wallets, wallets.accentImageFileName);
+          print("Migration successfully fixed wallets.accentImageFileName");
         } catch (e) {
           // The column already existed
         }
@@ -5057,6 +5080,11 @@ class FinanceDatabase extends _$FinanceDatabase {
 
   //delete wallet given key
   Future deleteWallet(String walletPk, int order) async {
+    final TransactionWallet? walletBeforeDelete = await (select(wallets)
+          ..where((w) => w.walletPk.equals(walletPk)))
+        .getSingleOrNull();
+    final String? accentImageToRemove = walletBeforeDelete?.accentImageFileName;
+
     TransactionWallet? newPrimaryCandidate;
 
     if (walletPk == "0") {
@@ -5076,6 +5104,10 @@ class FinanceDatabase extends _$FinanceDatabase {
     await database.shiftWallets(-1, order);
     await createDeleteLog(DeleteLogType.TransactionWallet, walletPk);
     await (delete(wallets)..where((w) => w.walletPk.equals(walletPk))).go();
+
+    if (accentImageToRemove != null) {
+      await deleteWalletAccentStoredFile(accentImageToRemove);
+    }
 
     if (newPrimaryCandidate != null && walletPk == "0") {
       await convertToPrimaryWallet(newPrimaryCandidate);

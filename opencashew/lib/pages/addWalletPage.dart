@@ -6,6 +6,7 @@ import 'package:budget/pages/settingsPage.dart';
 import 'package:budget/struct/currencyFunctions.dart';
 import 'package:budget/struct/databaseGlobal.dart';
 import 'package:budget/struct/settings.dart';
+import 'package:budget/struct/wallet_accent_storage.dart';
 import 'package:budget/widgets/animatedExpanded.dart';
 import 'package:budget/widgets/button.dart';
 import 'package:budget/widgets/dropdownSelect.dart';
@@ -26,11 +27,13 @@ import 'package:budget/widgets/textInput.dart';
 import 'package:budget/widgets/textWidgets.dart';
 import 'package:budget/widgets/currencyPicker.dart';
 import 'package:budget/widgets/transactionEntry/incomeAmountArrow.dart';
+import 'package:budget/widgets/walletAccentSwatch.dart';
 import 'package:budget/widgets/util/widgetSize.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:image_picker/image_picker.dart';
 import 'package:budget/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
@@ -52,6 +55,8 @@ class AddWalletPage extends StatefulWidget {
   _AddWalletPageState createState() => _AddWalletPageState();
 }
 
+enum _WalletAccentKind { color, image }
+
 class _AddWalletPageState extends State<AddWalletPage> {
   bool? canAddWallet;
 
@@ -59,6 +64,12 @@ class _AddWalletPageState extends State<AddWalletPage> {
   late Color? selectedColor =
       widget.wallet?.colour == null ? null : HexColor(widget.wallet?.colour);
   String? selectedIconName;
+
+  late final String? _initialCommittedAccentImage =
+      widget.wallet?.accentImageFileName;
+  String? _workingAccentImage;
+  late _WalletAccentKind _accentKind;
+  bool _keepStagedAccentImageOnDispose = false;
   Map<String, dynamic> currencies = {};
   bool customCurrencyIcon = false;
   String? searchCurrency = "";
@@ -76,7 +87,9 @@ class _AddWalletPageState extends State<AddWalletPage> {
   }
 
   void setSelectedColor(Color? color) {
-    selectedColor = color;
+    setState(() {
+      selectedColor = color;
+    });
     determineBottomButton();
     return;
   }
@@ -91,8 +104,18 @@ class _AddWalletPageState extends State<AddWalletPage> {
 
   Future addWallet({bool popContext = true}) async {
     print("Added wallet");
+    final TransactionWallet built = await createTransactionWallet();
     final int? rowId = await database.createOrUpdateWallet(
-        insert: widget.wallet == null, await createTransactionWallet());
+        insert: widget.wallet == null, built);
+
+    if (widget.wallet != null) {
+      final String? prevImage = widget.wallet!.accentImageFileName;
+      if (prevImage != null && prevImage != built.accentImageFileName) {
+        await deleteWalletAccentStoredFile(prevImage);
+      }
+    }
+
+    _keepStagedAccentImageOnDispose = true;
 
     // set initial amount
     if (widget.wallet == null && initialBalance != 0) {
@@ -117,13 +140,18 @@ class _AddWalletPageState extends State<AddWalletPage> {
     return TransactionWallet(
       walletPk: widget.wallet != null ? widget.wallet!.walletPk : "-1",
       name: selectedTitle ?? "",
-      colour: toHexString(selectedColor),
+      colour: _accentKind == _WalletAccentKind.image
+          ? null
+          : toHexString(selectedColor),
+      accentImageFileName:
+          _accentKind == _WalletAccentKind.image ? _workingAccentImage : null,
       dateCreated:
           widget.wallet != null ? widget.wallet!.dateCreated : DateTime.now(),
       dateTimeModified: null,
       order: widget.wallet != null ? widget.wallet!.order : numberOfWallets,
       currency: selectedCurrency,
       decimals: selectedDecimals,
+      currencyFormat: widget.wallet?.currencyFormat,
       homePageWidgetDisplay: widget.wallet != null
           ? widget.wallet!.homePageWidgetDisplay
           : defaultWalletHomePageWidgetDisplay,
@@ -166,6 +194,15 @@ class _AddWalletPageState extends State<AddWalletPage> {
           : HexColor(widget.wallet!.colour);
       selectedCurrency = widget.wallet!.currency ?? "usd";
       selectedDecimals = widget.wallet!.decimals;
+      _workingAccentImage = widget.wallet!.accentImageFileName;
+      _accentKind = !kIsWeb &&
+              (widget.wallet!.accentImageFileName != null &&
+                  widget.wallet!.accentImageFileName!.isNotEmpty)
+          ? _WalletAccentKind.image
+          : _WalletAccentKind.color;
+    } else {
+      _workingAccentImage = null;
+      _accentKind = _WalletAccentKind.color;
     }
     populateCurrencies();
     Future.delayed(Duration.zero, () async {
@@ -176,11 +213,86 @@ class _AddWalletPageState extends State<AddWalletPage> {
 
   @override
   void dispose() {
+    if (!_keepStagedAccentImageOnDispose) {
+      final staged = _workingAccentImage;
+      if (staged != null && staged != _initialCommittedAccentImage) {
+        deleteWalletAccentStoredFile(staged);
+      }
+    }
     super.dispose();
   }
 
+  Future<void> _pickWalletAccentImage() async {
+    if (kIsWeb) {
+      openSnackbar(
+        SnackbarMessage(
+          title: "wallet-accent-web-hint".tr(),
+          icon: appStateSettings["outlinedIcons"]
+              ? Icons.info_outlined
+              : Icons.info_rounded,
+        ),
+      );
+      return;
+    }
+    final ImagePicker picker = ImagePicker();
+    final XFile? file = await picker.pickImage(source: ImageSource.gallery);
+    if (file == null) return;
+    final String? name = await copyPickedWalletAccentImage(file);
+    if (name == null) {
+      openSnackbar(
+        SnackbarMessage(
+          title: "wallet-accent-save-failed".tr(),
+          icon: appStateSettings["outlinedIcons"]
+              ? Icons.error_outlined
+              : Icons.error_rounded,
+        ),
+      );
+      return;
+    }
+    final String? prior = _workingAccentImage;
+    setState(() {
+      _workingAccentImage = name;
+      _accentKind = _WalletAccentKind.image;
+      selectedColor = null;
+    });
+    determineBottomButton();
+    if (prior != null && prior != _initialCommittedAccentImage) {
+      await deleteWalletAccentStoredFile(prior);
+    }
+  }
+
+  void _setAccentKind(_WalletAccentKind kind) {
+    setState(() {
+      _accentKind = kind;
+      if (kind == _WalletAccentKind.color) {
+        if (_workingAccentImage != null &&
+            _workingAccentImage != _initialCommittedAccentImage) {
+          deleteWalletAccentStoredFile(_workingAccentImage);
+        }
+        _workingAccentImage = null;
+      }
+    });
+    determineBottomButton();
+  }
+
+  void _removeWalletAccentImage() {
+    final String? current = _workingAccentImage;
+    setState(() {
+      _workingAccentImage = null;
+      _accentKind = _WalletAccentKind.color;
+    });
+    determineBottomButton();
+    if (current != null && current != _initialCommittedAccentImage) {
+      deleteWalletAccentStoredFile(current);
+    }
+  }
+
   determineBottomButton() {
-    if (selectedTitle != null && selectedCurrency != "") {
+    final bool imageRequirementOk = _accentKind != _WalletAccentKind.image ||
+        (_workingAccentImage != null && _workingAccentImage!.isNotEmpty);
+    if (selectedTitle != null &&
+        selectedCurrency != "" &&
+        imageRequirementOk) {
       if (canAddWallet != true)
         this.setState(() {
           canAddWallet = true;
@@ -457,14 +569,124 @@ class _AddWalletPageState extends State<AddWalletPage> {
             child: SizedBox(height: 14),
           ),
           SliverToBoxAdapter(
-            child: Container(
-              height: 65,
-              child: SelectColor(
-                horizontalList: true,
-                selectedColor: selectedColor,
-                setSelectedColor: setSelectedColor,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextFont(
+                    text: "wallet-accent-appearance".tr(),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SettingsContainer(
+                          isOutlined: true,
+                          onTap: () => _setAccentKind(_WalletAccentKind.color),
+                          title: "wallet-accent-color".tr(),
+                          icon: appStateSettings["outlinedIcons"]
+                              ? Icons.palette_outlined
+                              : Icons.palette_rounded,
+                          iconScale: 1,
+                          isWideOutlined: true,
+                          horizontalPadding: 10,
+                          backgroundColor: _accentKind == _WalletAccentKind.color
+                              ? Theme.of(context)
+                                  .colorScheme
+                                  .secondaryContainer
+                                  .withOpacity(0.55)
+                              : null,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Expanded(
+                        child: SettingsContainer(
+                          isOutlined: true,
+                          onTap: kIsWeb
+                              ? () => _pickWalletAccentImage()
+                              : () => _setAccentKind(_WalletAccentKind.image),
+                          title: "wallet-accent-image".tr(),
+                          icon: appStateSettings["outlinedIcons"]
+                              ? Icons.image_outlined
+                              : Icons.image_rounded,
+                          iconScale: 1,
+                          isWideOutlined: true,
+                          horizontalPadding: 10,
+                          backgroundColor:
+                              _accentKind == _WalletAccentKind.image
+                                  ? Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer
+                                      .withOpacity(0.55)
+                                  : null,
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (_accentKind == _WalletAccentKind.image) ...[
+                    SizedBox(height: 12),
+                    if (kIsWeb)
+                      TextFont(
+                        text: "wallet-accent-web-hint".tr(),
+                        fontSize: 13,
+                        textColor:
+                            getColor(context, "black").withOpacity(0.65),
+                      )
+                    else ...[
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SettingsContainer(
+                              isOutlined: true,
+                              onTap: _pickWalletAccentImage,
+                              title: "wallet-accent-choose-photo".tr(),
+                              icon: appStateSettings["outlinedIcons"]
+                                  ? Icons.add_photo_alternate_outlined
+                                  : Icons.add_photo_alternate_rounded,
+                              iconScale: 1,
+                              isWideOutlined: true,
+                              horizontalPadding: 10,
+                            ),
+                          ),
+                          if (_workingAccentImage != null) ...[
+                            SizedBox(width: 8),
+                            SettingsContainer(
+                              isOutlined: true,
+                              onTap: _removeWalletAccentImage,
+                              title: "wallet-accent-remove-image".tr(),
+                              icon: appStateSettings["outlinedIcons"]
+                                  ? Icons.delete_outline
+                                  : Icons.delete_rounded,
+                              iconScale: 1,
+                              isWideOutlined: false,
+                              horizontalPadding: 12,
+                            ),
+                          ],
+                        ],
+                      ),
+                    ],
+                  ],
+                ],
               ),
             ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 10),
+          ),
+          SliverToBoxAdapter(
+            child: _accentKind == _WalletAccentKind.image
+                ? SizedBox.shrink()
+                : Container(
+                    height: 65,
+                    child: SelectColor(
+                      horizontalList: true,
+                      selectedColor: selectedColor,
+                      setSelectedColor: setSelectedColor,
+                    ),
+                  ),
           ),
           SliverToBoxAdapter(
             child: SizedBox(height: 15),
@@ -1092,9 +1314,10 @@ class _TransferBalancePopupState extends State<TransferBalancePopup> {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: HexColor(wallet?.colour,
-                        defaultColor: Theme.of(context).colorScheme.primary)
-                    .withOpacity(0.7),
+                color: wallet != null
+                    ? walletUiAccentColor(context, wallet)
+                        .withOpacity(0.7)
+                    : Theme.of(context).colorScheme.primary.withOpacity(0.7),
                 width: 2,
               ),
               borderRadius: BorderRadiusDirectional.all(Radius.circular(12)),
