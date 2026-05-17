@@ -5,6 +5,15 @@ import 'package:image_picker/image_picker.dart';
 import 'wallet_accent_storage_stub.dart'
     if (dart.library.io) 'wallet_accent_storage_io.dart' as impl;
 
+Future<String?> saveWalletAccentImageBytes(
+  Uint8List bytes, {
+  String extension = '.jpg',
+}) =>
+    impl.saveWalletAccentImageBytes(bytes, extension: extension);
+
+Future<Uint8List> readPickedImageBytes(XFile picked) =>
+    impl.readPickedImageBytes(picked);
+
 Future<String?> copyPickedWalletAccentImage(XFile picked) =>
     impl.copyPickedWalletAccentImage(picked);
 

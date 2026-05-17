@@ -33,6 +33,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:typed_data';
 import 'package:image_picker/image_picker.dart';
 import 'package:budget/colors.dart';
 import 'package:provider/provider.dart';
@@ -68,8 +69,17 @@ class _AddWalletPageState extends State<AddWalletPage> {
   late final String? _initialCommittedAccentImage =
       widget.wallet?.accentImageFileName;
   String? _workingAccentImage;
+  Uint8List? _accentImagePreviewBytes;
   late _WalletAccentKind _accentKind;
   bool _keepStagedAccentImageOnDispose = false;
+  bool _removedCommittedAccentImage = false;
+
+  bool get _hasAccentImage =>
+      _workingAccentImage != null && _workingAccentImage!.isNotEmpty;
+
+  bool get _showAccentImagePreview =>
+      _hasAccentImage ||
+      (_accentImagePreviewBytes != null && _accentImagePreviewBytes!.isNotEmpty);
   Map<String, dynamic> currencies = {};
   bool customCurrencyIcon = false;
   String? searchCurrency = "";
@@ -200,6 +210,9 @@ class _AddWalletPageState extends State<AddWalletPage> {
                   widget.wallet!.accentImageFileName!.isNotEmpty)
           ? _WalletAccentKind.image
           : _WalletAccentKind.color;
+      if (_hasAccentImage) {
+        _refreshAccentPreviewBytes(_workingAccentImage);
+      }
     } else {
       _workingAccentImage = null;
       _accentKind = _WalletAccentKind.color;
@@ -222,6 +235,15 @@ class _AddWalletPageState extends State<AddWalletPage> {
     super.dispose();
   }
 
+  Future<void> _refreshAccentPreviewBytes(String? fileName) async {
+    if (kIsWeb || fileName == null || fileName.isEmpty) return;
+    final Uint8List? bytes = await loadWalletAccentImageBytes(fileName);
+    if (!mounted) return;
+    setState(() {
+      _accentImagePreviewBytes = bytes;
+    });
+  }
+
   Future<void> _pickWalletAccentImage() async {
     if (kIsWeb) {
       openSnackbar(
@@ -234,11 +256,52 @@ class _AddWalletPageState extends State<AddWalletPage> {
       );
       return;
     }
-    final ImagePicker picker = ImagePicker();
-    final XFile? file = await picker.pickImage(source: ImageSource.gallery);
-    if (file == null) return;
-    final String? name = await copyPickedWalletAccentImage(file);
-    if (name == null) {
+
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? file = await picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 88,
+      );
+      if (file == null || !mounted) return;
+
+      final Uint8List pickedBytes = await readPickedImageBytes(file);
+      final String ext = _extensionFromPickedImage(file);
+      final String? name = await saveWalletAccentImageBytes(
+        pickedBytes,
+        extension: ext,
+      );
+      if (!mounted) return;
+
+      if (name == null) {
+        openSnackbar(
+          SnackbarMessage(
+            title: "wallet-accent-save-failed".tr(),
+            icon: appStateSettings["outlinedIcons"]
+                ? Icons.error_outlined
+                : Icons.error_rounded,
+          ),
+        );
+        return;
+      }
+
+      final String? prior = _workingAccentImage;
+      setState(() {
+        _workingAccentImage = name;
+        _accentImagePreviewBytes = pickedBytes;
+        _accentKind = _WalletAccentKind.image;
+        _removedCommittedAccentImage = false;
+        selectedColor = null;
+      });
+      determineBottomButton();
+      if (prior != null && prior != _initialCommittedAccentImage) {
+        await deleteWalletAccentStoredFile(prior);
+      }
+    } catch (e) {
+      print('wallet accent pick failed: $e');
+      if (!mounted) return;
       openSnackbar(
         SnackbarMessage(
           title: "wallet-accent-save-failed".tr(),
@@ -247,29 +310,27 @@ class _AddWalletPageState extends State<AddWalletPage> {
               : Icons.error_rounded,
         ),
       );
-      return;
     }
-    final String? prior = _workingAccentImage;
-    setState(() {
-      _workingAccentImage = name;
-      _accentKind = _WalletAccentKind.image;
-      selectedColor = null;
-    });
-    determineBottomButton();
-    if (prior != null && prior != _initialCommittedAccentImage) {
-      await deleteWalletAccentStoredFile(prior);
+  }
+
+  Future<void> _onPhotoAccentTabTap() async {
+    final bool wasOnColor = _accentKind == _WalletAccentKind.color;
+    _setAccentKind(_WalletAccentKind.image);
+    if (wasOnColor && !_hasAccentImage) {
+      await _pickWalletAccentImage();
     }
   }
 
   void _setAccentKind(_WalletAccentKind kind) {
     setState(() {
       _accentKind = kind;
-      if (kind == _WalletAccentKind.color) {
-        if (_workingAccentImage != null &&
-            _workingAccentImage != _initialCommittedAccentImage) {
-          deleteWalletAccentStoredFile(_workingAccentImage);
-        }
-        _workingAccentImage = null;
+      if (kind == _WalletAccentKind.image &&
+          !_hasAccentImage &&
+          !_removedCommittedAccentImage &&
+          _initialCommittedAccentImage != null &&
+          _initialCommittedAccentImage!.isNotEmpty) {
+        _workingAccentImage = _initialCommittedAccentImage;
+        _refreshAccentPreviewBytes(_initialCommittedAccentImage);
       }
     });
     determineBottomButton();
@@ -279,7 +340,11 @@ class _AddWalletPageState extends State<AddWalletPage> {
     final String? current = _workingAccentImage;
     setState(() {
       _workingAccentImage = null;
+      _accentImagePreviewBytes = null;
       _accentKind = _WalletAccentKind.color;
+      if (current != null && current == _initialCommittedAccentImage) {
+        _removedCommittedAccentImage = true;
+      }
     });
     determineBottomButton();
     if (current != null && current != _initialCommittedAccentImage) {
@@ -287,9 +352,16 @@ class _AddWalletPageState extends State<AddWalletPage> {
     }
   }
 
+  String _extensionFromPickedImage(XFile file) {
+    final name = file.name;
+    final dot = name.lastIndexOf('.');
+    if (dot <= 0 || dot >= name.length - 1) return '.jpg';
+    return name.substring(dot).toLowerCase();
+  }
+
   determineBottomButton() {
-    final bool imageRequirementOk = _accentKind != _WalletAccentKind.image ||
-        (_workingAccentImage != null && _workingAccentImage!.isNotEmpty);
+    final bool imageRequirementOk =
+        _accentKind != _WalletAccentKind.image || _hasAccentImage;
     if (selectedTitle != null &&
         selectedCurrency != "" &&
         imageRequirementOk) {
@@ -605,9 +677,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                       Expanded(
                         child: SettingsContainer(
                           isOutlined: true,
-                          onTap: kIsWeb
-                              ? () => _pickWalletAccentImage()
-                              : () => _setAccentKind(_WalletAccentKind.image),
+                          onTap: _onPhotoAccentTabTap,
                           title: "wallet-accent-image".tr(),
                           icon: appStateSettings["outlinedIcons"]
                               ? Icons.image_outlined
@@ -635,39 +705,54 @@ class _AddWalletPageState extends State<AddWalletPage> {
                         textColor:
                             getColor(context, "black").withOpacity(0.65),
                       )
-                    else ...[
-                      Row(
-                        children: [
-                          Expanded(
-                            child: SettingsContainer(
-                              isOutlined: true,
-                              onTap: _pickWalletAccentImage,
-                              title: "wallet-accent-choose-photo".tr(),
-                              icon: appStateSettings["outlinedIcons"]
-                                  ? Icons.add_photo_alternate_outlined
-                                  : Icons.add_photo_alternate_rounded,
-                              iconScale: 1,
-                              isWideOutlined: true,
-                              horizontalPadding: 10,
-                            ),
+                    else if (_showAccentImagePreview) ...[
+                      Center(
+                        child: _WalletAccentImagePreview(
+                          key: ValueKey(
+                            '${_workingAccentImage ?? "bytes"}-${_accentImagePreviewBytes?.lengthInBytes ?? 0}',
                           ),
-                          if (_workingAccentImage != null) ...[
-                            SizedBox(width: 8),
-                            SettingsContainer(
-                              isOutlined: true,
-                              onTap: _removeWalletAccentImage,
-                              title: "wallet-accent-remove-image".tr(),
-                              icon: appStateSettings["outlinedIcons"]
-                                  ? Icons.delete_outline
-                                  : Icons.delete_rounded,
-                              iconScale: 1,
-                              isWideOutlined: false,
-                              horizontalPadding: 12,
-                            ),
-                          ],
-                        ],
+                          fileName: _workingAccentImage ?? '',
+                          imageBytes: _accentImagePreviewBytes,
+                          size: 96,
+                          onTap: _pickWalletAccentImage,
+                        ),
                       ),
-                    ],
+                      SizedBox(height: 10),
+                      SettingsContainer(
+                        isOutlined: true,
+                        onTap: _pickWalletAccentImage,
+                        title: "wallet-accent-choose-photo".tr(),
+                        icon: appStateSettings["outlinedIcons"]
+                            ? Icons.add_photo_alternate_outlined
+                            : Icons.add_photo_alternate_rounded,
+                        iconScale: 1,
+                        isWideOutlined: true,
+                        horizontalPadding: 10,
+                      ),
+                      SizedBox(height: 8),
+                      SettingsContainer(
+                        isOutlined: true,
+                        onTap: _removeWalletAccentImage,
+                        title: "wallet-accent-remove-image".tr(),
+                        icon: appStateSettings["outlinedIcons"]
+                            ? Icons.delete_outline
+                            : Icons.delete_rounded,
+                        iconScale: 1,
+                        isWideOutlined: true,
+                        horizontalPadding: 10,
+                      ),
+                    ] else
+                      SettingsContainer(
+                        isOutlined: true,
+                        onTap: _pickWalletAccentImage,
+                        title: "wallet-accent-choose-photo".tr(),
+                        icon: appStateSettings["outlinedIcons"]
+                            ? Icons.add_photo_alternate_outlined
+                            : Icons.add_photo_alternate_rounded,
+                        iconScale: 1,
+                        isWideOutlined: true,
+                        horizontalPadding: 10,
+                      ),
                   ],
                 ],
               ),
@@ -922,6 +1007,89 @@ class _AddWalletPageState extends State<AddWalletPage> {
           // ),
         ],
       ),
+    );
+  }
+}
+
+class _WalletAccentImagePreview extends StatelessWidget {
+  const _WalletAccentImagePreview({
+    super.key,
+    required this.fileName,
+    required this.size,
+    this.imageBytes,
+    this.onTap,
+  });
+
+  final String fileName;
+  final double size;
+  final Uint8List? imageBytes;
+  final VoidCallback? onTap;
+
+  Widget _imageFromBytes(Uint8List bytes) {
+    return ClipOval(
+      child: Image.memory(
+        bytes,
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+        gaplessPlayback: true,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget preview;
+    if (imageBytes != null && imageBytes!.isNotEmpty) {
+      preview = _imageFromBytes(imageBytes!);
+    } else if (fileName.isEmpty) {
+      preview = SizedBox(width: size, height: size);
+    } else {
+      preview = FutureBuilder<Uint8List?>(
+        key: ValueKey(fileName),
+        future: loadWalletAccentImageBytes(fileName),
+        builder: (context, snapshot) {
+          final bytes = snapshot.data;
+          if (bytes != null && bytes.isNotEmpty) {
+            return _imageFromBytes(bytes);
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return SizedBox(
+              width: size,
+              height: size,
+              child: Center(
+                child: SizedBox(
+                  width: size * 0.35,
+                  height: size * 0.35,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+              ),
+            );
+          }
+          return Container(
+            width: size,
+            height: size,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: getColor(context, "lightDarkAccent"),
+            ),
+            child: Icon(
+              appStateSettings["outlinedIcons"]
+                  ? Icons.broken_image_outlined
+                  : Icons.broken_image_rounded,
+              color: getColor(context, "black").withOpacity(0.45),
+            ),
+          );
+        },
+      );
+    }
+
+    if (onTap == null) return preview;
+
+    return Tappable(
+      onTap: onTap,
+      borderRadius: size / 2,
+      child: preview,
     );
   }
 }

@@ -33,14 +33,34 @@ String _extensionFromXFile(XFile file) {
   return name.substring(dot).toLowerCase();
 }
 
+Future<String?> saveWalletAccentImageBytes(
+  Uint8List bytes, {
+  String extension = '.jpg',
+}) async {
+  try {
+    final ext = extension.startsWith('.') ? extension : '.$extension';
+    final dir = await _walletAccentDirectory();
+    final name = '${_uuid.v4()}$ext';
+    if (!_isSafeBasename(name)) return null;
+    final out = File(p.join(dir.path, name));
+    await out.writeAsBytes(bytes, flush: true);
+    return name;
+  } catch (e) {
+    print('saveWalletAccentImageBytes failed: $e');
+    return null;
+  }
+}
+
+Future<Uint8List> readPickedImageBytes(XFile picked) async {
+  if (picked.path.isNotEmpty) {
+    return File(picked.path).readAsBytes();
+  }
+  return picked.readAsBytes();
+}
+
 Future<String?> copyPickedWalletAccentImage(XFile picked) async {
   final bytes = await picked.readAsBytes();
-  final dir = await _walletAccentDirectory();
-  final name = '${_uuid.v4()}${_extensionFromXFile(picked)}';
-  if (!_isSafeBasename(name)) return null;
-  final out = File(p.join(dir.path, name));
-  await out.writeAsBytes(bytes, flush: true);
-  return name;
+  return saveWalletAccentImageBytes(bytes, extension: _extensionFromXFile(picked));
 }
 
 Future<void> deleteWalletAccentStoredFile(String? fileName) async {
