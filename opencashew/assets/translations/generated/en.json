@@ -315,6 +315,8 @@
   "all-categories": "All categories",
   "sign-in-error": "Sign-in Error",
   "sign-in-error-description": "Check your connection and try again",
+  "google-drive-api-disabled": "Google Drive is not enabled",
+  "google-drive-api-disabled-description": "Enable the Google Drive API for project cashew-budget-513fe in Google Cloud Console, wait a few minutes, then sign in again. Tap this message to open the setup page.",
   "delete-selected-transactions": "Delete Selected Transactions?",
   "deleted": "Deleted",
   "edit-transaction": "Edit Transaction",

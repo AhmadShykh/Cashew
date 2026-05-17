@@ -10,6 +10,8 @@ import 'package:budget/pages/accountsPage.dart';
 import 'package:budget/struct/databaseGlobal.dart';
 import 'package:budget/struct/settings.dart';
 import 'package:budget/struct/shareBudget.dart';
+import 'package:budget/struct/firebaseAuthGlobal.dart';
+import 'package:budget/struct/google_drive_errors.dart';
 import 'package:budget/struct/syncClient.dart';
 import 'package:budget/widgets/animatedExpanded.dart';
 import 'package:budget/widgets/button.dart';
@@ -132,8 +134,12 @@ Future<bool> signInGoogle(
       googleSignIn = getPlatform() == PlatformOS.isIOS
           ? signIn.GoogleSignIn(
               clientId: DefaultFirebaseOptions.currentPlatform.iosClientId,
-              scopes: scopes)
-          : signIn.GoogleSignIn.standard(scopes: scopes);
+              scopes: scopes,
+            )
+          : signIn.GoogleSignIn(
+              scopes: scopes,
+              serverClientId: DefaultFirebaseOptions.googleOAuthWebClientId,
+            );
       // googleSignIn?.currentUser?.clearAuthCache();
 
       final signIn.GoogleSignInAccount? account = silentSignIn == true
@@ -153,11 +159,15 @@ Future<bool> signInGoogle(
           : await googleSignIn?.signIn();
 
       if (account != null) {
-        // print("ACCOUNT");
-        // print(account);
         googleUser = account;
         await updateSettings("currentUserEmail", googleUser?.email ?? "",
             updateGlobalState: false);
+        final bool firebaseLinked = await linkGoogleAccountToFirebase();
+        if (!firebaseLinked) {
+          debugPrint(
+            'Google account signed in but Firebase Auth was not linked.',
+          );
+        }
       } else {
         throw ("Login failed");
       }
@@ -229,6 +239,7 @@ Future<bool> testIfHasGmailAccess() async {
 Future<bool> signOutGoogle() async {
   await googleSignIn?.signOut();
   googleUser = null;
+  await clearFirebaseAuthSession();
   await updateSettings("currentUserEmail", "", updateGlobalState: false);
   await updateSettings("hasSignedIn", false, updateGlobalState: false);
   refreshUIAfterLoginChange();
@@ -294,6 +305,17 @@ Future<bool> signInAndSync(BuildContext context,
   } catch (e) {
     print("Error syncing data after login!");
     print(e.toString());
+    if (!await handleGoogleApiSignInError(e)) {
+      openSnackbar(
+        SnackbarMessage(
+          title: "sign-in-error".tr(),
+          description: e.toString(),
+          icon: appStateSettings["outlinedIcons"]
+              ? Icons.error_outlined
+              : Icons.error_rounded,
+        ),
+      );
+    }
     loadingIndeterminateKey.currentState?.setVisibility(false);
     return false;
   }
@@ -459,6 +481,9 @@ Future<void> createBackup(
   } catch (e) {
     if (silentBackup == false || silentBackup == null) {
       loadingIndeterminateKey.currentState?.setVisibility(false);
+    }
+    if (await handleGoogleApiSignInError(e)) {
+      return;
     }
     if (e is DetailedApiRequestError && e.status == 401) {
       await refreshGoogleSignIn();
@@ -773,6 +798,9 @@ Future<(drive.DriveApi? driveApi, List<drive.File>?)> getDriveFiles() async {
         $fields: 'files(id, name, modifiedTime, size)');
     return (driveApi, fileList.files);
   } catch (e) {
+    if (await handleGoogleApiSignInError(e)) {
+      return (null, null);
+    }
     if (e is DetailedApiRequestError && e.status == 401) {
       await refreshGoogleSignIn();
       return await getDriveFiles();

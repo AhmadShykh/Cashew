@@ -35,6 +35,7 @@ import 'package:budget/struct/navBarIconsData.dart';
 import 'package:budget/struct/quickActions.dart';
 import 'package:budget/struct/settings.dart';
 import 'package:budget/struct/shareBudget.dart';
+import 'package:budget/struct/google_drive_errors.dart';
 import 'package:budget/struct/syncClient.dart';
 import 'package:budget/widgets/accountAndBackup.dart';
 import 'package:budget/widgets/bottomNavBar.dart';
@@ -329,6 +330,9 @@ Future<bool> runAllCloudFunctions(BuildContext context,
     loadingIndeterminateKey.currentState?.setVisibility(false);
     runningCloudFunctions = false;
     canSyncData = true;
+    if (await handleGoogleApiSignInError(e)) {
+      return false;
+    }
     if (e is DetailedApiRequestError &&
             e.status == 401 &&
             forceSignIn == true ||
