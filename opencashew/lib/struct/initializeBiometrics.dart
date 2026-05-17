@@ -21,6 +21,19 @@ enum AuthResult {
 
 bool authAvailable = false;
 
+Future<bool> refreshAuthAvailable([LocalAuthentication? auth]) async {
+  final LocalAuthentication localAuth = auth ?? LocalAuthentication();
+  try {
+    // PIN / pattern / password work when biometricOnly is false on Android.
+    authAvailable = await localAuth.isDeviceSupported();
+    return authAvailable;
+  } catch (e, stack) {
+    debugPrint('refreshAuthAvailable failed: $e\n$stack');
+    authAvailable = false;
+    return false;
+  }
+}
+
 Future<AuthResult> checkBiometrics({
   bool checkAlways = false,
 }) async {
@@ -32,29 +45,38 @@ Future<AuthResult> checkBiometrics({
     }
 
     final LocalAuthentication auth = LocalAuthentication();
-    authAvailable =
-        await auth.isDeviceSupported() || await auth.canCheckBiometrics;
+    await refreshAuthAvailable(auth);
 
     final bool requireAuth =
         checkAlways || appStateSettings["requireAuth"] == true;
     if (requireAuth == false) return AuthResult.authenticated;
 
-    await auth.stopAuthentication();
-
-    if (authAvailable) {
-      //bool biometricsOnly = (await auth.canCheckBiometrics);
-      return (await auth.authenticate(
-        localizedReason: "verify-identity".tr(),
-        options: AuthenticationOptions(biometricOnly: false),
-      ))
-          ? AuthResult.authenticated
-          : AuthResult.unauthenticated;
+    try {
+      await auth.stopAuthentication();
+    } catch (e) {
+      debugPrint('stopAuthentication (ignored): $e');
     }
 
-    return isDatabaseImportedOnThisSession
-        ? AuthResult.errorBackupRestoreLaunch
-        : AuthResult.error;
-  } catch (e) {
+    if (!await auth.isDeviceSupported()) {
+      debugPrint('checkBiometrics: device does not support local auth');
+      return isDatabaseImportedOnThisSession
+          ? AuthResult.errorBackupRestoreLaunch
+          : AuthResult.error;
+    }
+
+    final bool authenticated = await auth.authenticate(
+      localizedReason: "verify-identity".tr(),
+      options: const AuthenticationOptions(
+        biometricOnly: false,
+        stickyAuth: true,
+        useErrorDialogs: true,
+      ),
+    );
+    return authenticated
+        ? AuthResult.authenticated
+        : AuthResult.unauthenticated;
+  } catch (e, stack) {
+    debugPrint('checkBiometrics failed: $e\n$stack');
     return isDatabaseImportedOnThisSession
         ? AuthResult.errorBackupRestoreLaunch
         : AuthResult.error;

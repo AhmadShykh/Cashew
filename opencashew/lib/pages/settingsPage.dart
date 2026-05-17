@@ -9,7 +9,6 @@ import 'package:budget/pages/editHomePage.dart';
 import 'package:budget/pages/editObjectivesPage.dart';
 import 'package:budget/pages/homePage/homePageNetWorth.dart';
 import 'package:budget/pages/objectivesListPage.dart';
-import 'package:budget/pages/premiumPage.dart';
 import 'package:budget/pages/transactionsListPage.dart';
 import 'package:budget/pages/upcomingOverdueTransactionsPage.dart';
 import 'package:budget/struct/currencyFunctions.dart';
@@ -49,6 +48,7 @@ import 'package:budget/widgets/tappable.dart';
 import 'package:budget/widgets/textWidgets.dart';
 import 'package:budget/widgets/util/checkWidgetLaunch.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:budget/main.dart';
 import 'package:flutter/services.dart';
@@ -114,11 +114,7 @@ class MoreActionsPageState extends State<MoreActionsPage> {
           ),
         ],
         listWidgets: [
-          Padding(
-            padding: const EdgeInsetsDirectional.only(bottom: 8.0),
-            child: PremiumBanner(),
-          ),
-          MorePages()
+          MorePages(),
         ],
       );
     });
@@ -827,8 +823,30 @@ class BiometricsSettingToggle extends StatefulWidget {
 
 class _BiometricsSettingToggleState extends State<BiometricsSettingToggle> {
   bool isLocked = appStateSettings["requireAuth"];
+  bool _authAvailabilityChecked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (!kIsWeb) {
+      Future.microtask(() async {
+        await refreshAuthAvailable();
+        if (mounted) {
+          setState(() {
+            _authAvailabilityChecked = true;
+          });
+        }
+      });
+    } else {
+      _authAvailabilityChecked = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (kIsWeb || !_authAvailabilityChecked) {
+      return const SizedBox.shrink();
+    }
     return Column(
       children: [
         authAvailable || isLocked
@@ -836,6 +854,14 @@ class _BiometricsSettingToggleState extends State<BiometricsSettingToggle> {
                 title: "biometric-lock".tr(),
                 description: "biometric-lock-description".tr(),
                 onSwitched: (value) async {
+                  if (!value) {
+                    updateSettings("requireAuth", false,
+                        updateGlobalState: false);
+                    setState(() {
+                      isLocked = false;
+                    });
+                    return true;
+                  }
                   AuthResult authResult =
                       await checkBiometrics(checkAlways: true);
                   if (authResult == AuthResult.error) {

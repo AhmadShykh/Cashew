@@ -26,7 +26,8 @@ import 'package:sa3_liquid/sa3_liquid.dart';
 import 'package:budget/widgets/openContainerNavigation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
-bool premiumPopupEnabled = kIsWeb == false;
+// Pro features are free for all users in this build.
+bool premiumPopupEnabled = false;
 bool tryStoreEnabled = kIsWeb == false && kDebugMode == false;
 StreamSubscription<List<PurchaseDetails>>? purchaseListener;
 Map<String, ProductDetails> storeProducts = {};
@@ -715,9 +716,7 @@ showHelpRestorePopup(BuildContext context) {
 }
 
 bool hidePremiumPopup() {
-  return premiumPopupEnabled == false ||
-      appStateSettings["purchaseID"] != null ||
-      appStateSettings["previewDemo"] == true;
+  return true;
 }
 
 Future<bool> premiumPopupPushRoute(BuildContext context) async {
@@ -1208,6 +1207,10 @@ class LockedFeature extends StatelessWidget {
       );
     return Tappable(
       onTap: () async {
+        if (hidePremiumPopup()) {
+          if (actionAfter != null) await actionAfter!();
+          return;
+        }
         bool result = await premiumPopupPushRoute(context);
         if (actionAfter != null && result == true) actionAfter!();
       },
